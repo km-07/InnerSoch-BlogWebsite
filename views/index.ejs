@@ -1,0 +1,35 @@
+<%- include("./partials/header.ejs") %>
+
+<% let count = 1; %>
+
+<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+        <div class="d-flex gap-2 w-100 justify-content-between">
+          <div>
+            <% if (locals.dataArr.length > 0) { %>
+                <% for( let index = 0; index < dataArr.length; index++ ) { %>
+                    <ul>
+                        <li style="list-style: none;">
+                            <h2 class="mb-0"><%= count++ %>. <%= dataArr[index].title %></h2>
+                            <p class="mb-0 opacity-75">
+                                <%= dataArr[index].content %>
+                            </p>
+                            <p class="mb-0 opacity-40">
+                                by - <%= dataArr[index].name %>, <%= dataArr[index].email %>, <%= dataArr[index].number %>
+                            </p>
+                        </li>
+                    </ul>
+                <% } %>
+             
+            <% } else { %>
+                <h2 class="mb-0">Add Some Blogs!</h2>
+                <% } 
+            %>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+<%- include("./partials/footer.ejs") %>
